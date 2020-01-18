@@ -1,5 +1,7 @@
 package hibernate.util;
 
+import model.Tweet;
+import model.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -30,9 +32,9 @@ public class HibernateConfig {
     }
 
 
-    public void delete(Class clas, Long objectId) {
+    public void delete(Class clazz, Long objectId) {
         entityManager.getTransaction().begin();
-        Object toRemove = entityManager.find(clas, objectId);
+        Object toRemove = entityManager.find(clazz, objectId);
         entityManager.remove(toRemove);
         entityManager.getTransaction().commit();
     }
@@ -45,7 +47,9 @@ public class HibernateConfig {
         session.close();
     }
 
+
     public EntityManager getEntityManager() {
         return entityManager;
     }
+
 }

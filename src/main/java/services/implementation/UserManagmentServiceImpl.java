@@ -18,12 +18,12 @@ public class UserManagmentServiceImpl implements UserManagmentService {
 
     @Override
     public void saveUser(User user) {
-
+        userDao.saveUser(user);
     }
 
     @Override
     public void deleteUser(Long userId) {
-
+    userDao.deleteUser(userId);
     }
 
     @Override
