@@ -63,6 +63,23 @@ public class UserManagmentServiceImpl implements UserManagmentService {
     }
 
     @Override
+    public boolean isEmailExists(String email) {
+        try {
+            userDao.getUseByEmail(email);
+        } catch (NoResultException e) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public boolean validationUserLoginAndPassword(String login, String password) {
+        User user = userDao.getUserByLogin(login);
+        return user.getPassword().equals(password);
+    }
+
+
+    @Override
     public Set<User> getNotFollowedUsers(String login) {
         return userDao.getNotFollowedUsers(login);
     }

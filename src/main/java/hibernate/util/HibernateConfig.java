@@ -1,7 +1,6 @@
 package hibernate.util;
 
-import model.Tweet;
-import model.User;
+
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -12,7 +11,7 @@ import javax.persistence.Persistence;
 public class HibernateConfig {
 
     private static HibernateConfig instance;
-    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("myDatabase");
+    private final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("DB");
     private final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
     public static HibernateConfig getInstance() {
