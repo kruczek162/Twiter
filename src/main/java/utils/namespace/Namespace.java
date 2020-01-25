@@ -1,4 +1,4 @@
-package controllers.servlets.namespace;
+package utils.namespace;
 
 public class Namespace {
 
@@ -12,10 +12,8 @@ public class Namespace {
         public static final String USER_PASSWORD = "password";
         public static final String USER_REPEATED_PASSWORD = "repeatedPassword";
 
-        public static final String REMEBER = "remeber";
-        public static final String LOGIN_COOKIE = "remeber";
-        public static final String PASSWORD_COOKIE = "remeber";
-        public static final String CHECKBOOK_CHECKED = "ON";
+        public static final String REMEMBER = "remember";
+        public static final String CHECKBOOK_CHECKED = "on";
 
 
 

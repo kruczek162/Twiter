@@ -1,9 +1,8 @@
 package controllers.servlets;
 
-import controllers.servlets.errors.ValidationError;
+import utils.namespace.errors.ValidationError;
 import model.User;
 import services.implementation.UserManagmentServiceImpl;
-import services.implementation.TweetMenagerServicesImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static controllers.servlets.namespace.Namespace.*;
+import static utils.namespace.Namespace.*;
 
 @WebServlet(name = "RegisterServlet", value = "/register")
 public class RegisterServlet extends HttpServlet {
@@ -45,7 +44,7 @@ public class RegisterServlet extends HttpServlet {
 
         String login = req.getParameter(USER_LOGIN);
         if(service.isUserExists(login)) {
-            ValidationError error = new ValidationError(LOGIN_ERROR_HEADER, LOGIN_ERROR_MESSAGE);
+            ValidationError error = new ValidationError(LOGIN_ERROR_HEADER, LOGIN_IN_USE_ERROR_MESSAGE);
             errors.add(error);
         }
 

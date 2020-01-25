@@ -83,12 +83,15 @@
                     </div>
                     <input name="email" class="form-control" placeholder="email" type="email" required>
                 </div>
+
                 <div class="form-group"></div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-block blue"> Sign up</button>
                 </div>
                 <p class="text-center"><a href="login" class="btn">Back to login page</a></p>
             </div>
+
+
         </form>
     </div>
 </main>

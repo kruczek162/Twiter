@@ -1,8 +1,8 @@
-package controllers.servlets.cookie;
+package utils.namespace.cookie;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static controllers.servlets.namespace.Namespace.USER_LOGIN;
+import static utils.namespace.Namespace.USER_LOGIN;
 
 public class Cokkie {
 

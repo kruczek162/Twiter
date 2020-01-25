@@ -42,16 +42,6 @@ public class UserManagmentServiceImpl implements UserManagmentService {
         saveUser(currentUser);
     }
 
-
-    @Override
-    public boolean isUserValid(String login, String password) {
-        try {
-            return userDao.getUserByLogin(login).getPassword().equals(password);
-        } catch (NoResultException e) {
-            return false;
-        }
-    }
-
     @Override
     public boolean isUserExists(String login) {
         try {
@@ -82,5 +72,15 @@ public class UserManagmentServiceImpl implements UserManagmentService {
     @Override
     public Set<User> getNotFollowedUsers(String login) {
         return userDao.getNotFollowedUsers(login);
+    }
+
+
+    @Override
+    public boolean isUserValid(String login, String password) {
+        try {
+            return userDao.getUserByLogin(login).getPassword().equals(password);
+        } catch (NoResultException e) {
+            return false;
+        }
     }
 }

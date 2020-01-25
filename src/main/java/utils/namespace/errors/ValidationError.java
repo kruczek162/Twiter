@@ -1,4 +1,4 @@
-package controllers.servlets.errors;
+package utils.namespace.errors;
 
 public class ValidationError {
     private String header;

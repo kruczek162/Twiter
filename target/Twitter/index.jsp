@@ -1,5 +1,5 @@
-<%@ page import="controllers.servlets.namespace.Namespace" %>
-<%@ page import="static controllers.servlets.namespace.Namespace.*" %>
+<%@ page import="utils.namespace.Namespace" %>
+<%@ page import="static utils.namespace.Namespace.*" %>
 <html>
 <body>
 <% String helloUser = ((request.getAttribute(LOGGED_USER) == null) ? "unknown user" :
