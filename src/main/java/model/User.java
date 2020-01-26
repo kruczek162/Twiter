@@ -33,7 +33,7 @@ public class User {
 
     @Column(name = "date_register")
     @CreationTimestamp
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date dateOfRegistration;
 
     @ManyToMany(mappedBy = "follows")

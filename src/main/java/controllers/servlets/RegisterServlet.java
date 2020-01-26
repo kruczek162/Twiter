@@ -13,8 +13,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static utils.namespace.Namespace.*;
-
+import static controllers.servlets.util.ServletsUtil.*;
 @WebServlet(name = "RegisterServlet", value = "/register")
 public class RegisterServlet extends HttpServlet {
     private UserManagmentServiceImpl service;
@@ -72,6 +71,6 @@ public class RegisterServlet extends HttpServlet {
                 .build();
 
         service.saveUser(user);
-        req.getRequestDispatcher("index.jsp").forward(req,resp);
+        req.getRequestDispatcher("login.jsp").forward(req,resp);
     }
 }

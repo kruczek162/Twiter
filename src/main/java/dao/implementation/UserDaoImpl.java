@@ -4,6 +4,7 @@ import dao.AbstractDao;
 import dao.UserDao;
 import model.User;
 
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.HashSet;
 import java.util.List;
@@ -35,16 +36,18 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
 
     @Override
     public Set<User> getNotFollowedUsers(String login) {
-        List<User> users = entityManager.createQuery("SELECT u FROM User u != " + login, User.class).getResultList();
-        Set<User> followedUser = getFollowers(login);
-        users.removeAll(followedUser);
-        users.remove(login);
-        return new HashSet<User>(users);
+        Query query = entityManager.createQuery("select u from User u where u.login != :login");
+        query.setParameter("login", login);
+        List<User> users = query.getResultList();
+        Set<User> followedUsers = getFollowers(login);
+        users.removeAll(followedUsers);
+        return new HashSet<>(users);
     }
 
     @Override
     public Set<User> getFollows(String login) {
-      return getUserByLogin(login).getFollows();
+
+            return getUserByLogin(login).getFollows();
     }
 
     @Override

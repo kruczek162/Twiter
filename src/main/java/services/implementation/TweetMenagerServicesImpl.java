@@ -44,4 +44,7 @@ public class TweetMenagerServicesImpl implements TweetMenagerServices {
         followUser.forEach(f -> tweets.addAll(tweetDao.getUserTweets(f.getLogin())));
         return tweets;
     }
+
+
+
 }

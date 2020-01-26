@@ -13,6 +13,7 @@ public interface UserManagmentService {
     boolean isUserExists(String login);
     public boolean isEmailExists(String email);
     boolean validationUserLoginAndPassword(String login, String password);
+    Set<User> getFollowedPUsers (String login);
 
 
 }
