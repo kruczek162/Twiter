@@ -12,10 +12,10 @@ package controllers.servlets;
  * @throws IOException
  */
 
+
 import controllers.servlets.util.ServletsUtil;
-import model.User;
-import services.UserManagmentService;
-import services.implementation.UserManagmentServiceImpl;
+import model.Tweet;
+import services.implementation.TweetMenagerServicesImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,34 +23,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import java.util.Set;
 
-import static controllers.servlets.util.ServletsUtil.FOLLOWED_USERS;
-import static controllers.servlets.util.ServletsUtil.NOTFOLOWED_USERS;
 
-@WebServlet(name = "UsersServlet", value = "/users")
-public class UsersServlet extends HttpServlet {
-    private UserManagmentService service;
+@WebServlet (name = "MessagesServlet" , value = "/messages")
+public class MessagesServlet extends HttpServlet {
+
+    TweetMenagerServicesImpl services;
 
     @Override
     public void init() throws ServletException {
-        service = new UserManagmentServiceImpl();
+
+        services = new TweetMenagerServicesImpl();
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-        doPost(req,resp);
+        doPost(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String login = ServletsUtil.getUserLoginFromSession(req);
-        Set<User> followedUsers = service.getFollowedPUsers(login);
-        Set<User> notFollowedUsers = service.getNotFollowedUsers(login);
-        req.setAttribute(FOLLOWED_USERS, followedUsers);
-        req.setAttribute(NOTFOLOWED_USERS, notFollowedUsers);
-        req.getRequestDispatcher("/users.jsp").forward(req, resp);
+        String curentUserLogin = ServletsUtil.getUserLoginFromSession(req);
+        List<Tweet> followedTweets = services.getFollowedTweets(curentUserLogin);
+        req.setAttribute(ServletsUtil.FOLLOWED_TWEETS, followedTweets);
+        req.getRequestDispatcher("/messages.jsp").forward(req, resp);
+
     }
 
 

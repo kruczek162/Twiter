@@ -39,7 +39,7 @@ public class UserDaoImpl extends AbstractDao implements UserDao {
         Query query = entityManager.createQuery("select u from User u where u.login != :login");
         query.setParameter("login", login);
         List<User> users = query.getResultList();
-        Set<User> followedUsers = getFollowers(login);
+        Set<User> followedUsers = getFollows(login);
         users.removeAll(followedUsers);
         return new HashSet<>(users);
     }

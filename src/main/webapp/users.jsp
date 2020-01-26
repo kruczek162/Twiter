@@ -32,7 +32,7 @@
         <h6 class="border-bottom border-gray pb-2 mb-0">Following</h6>
         <c:forEach items="${followedUsers}" var="followedUser">
             <div class="media text-muted pt-3">
-                <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="" class="mr-2 rounded" width="32"
+                <a href="viewProfile?userLoginToViewProfile=${followedUser.login}"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="VievProfile" class="mr-2 rounded" width="32"
                      height="32">
                 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
                     <strong class="d-block text-gray-dark">${followedUser.login}</strong>
@@ -40,7 +40,7 @@
                     <strong class="d-block text-gray-dark">
                         On sparrow since :
                         <fmt:formatDate value="${followedUser.dateOfRegistration}"
-                                        pattern="yyyy-MM-dd HH-mm"/> </strong>
+                                        pattern="yyyy-MM-dd HH:mm"/> </strong>
                     <a href="unfollow?userLoginToUnfollow=${followedUser.login}"><b>Unfollow</b></a>
                 </p>
             </div>
@@ -57,7 +57,7 @@
                     <strong class="d-block text-gray-dark">${notFollowedUser.name}</strong>
                     <strong class="d-block text-gray-dark">
                         On SimpleTwitter since :
-                        <fmt:formatDate value="${notFollowedUser.dateOfRegistration}" pattern="yyyy-MM-dd"/> </strong>
+                        <fmt:formatDate value="${notFollowedUser.dateOfRegistration}" pattern="yyyy-MM-dd HH:mm"/> </strong>
                     </br>
                     <a href="follow?userLoginToFollow=${notFollowedUser.login}"><b>Follow</b></a>
                 </p>
